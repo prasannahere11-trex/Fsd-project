@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #FAF8F5;
+    --color-card: #FFFFFF;
+    --color-border: #E8E2D9;
+    --color-ink: #1C1B1A;
+    --color-ink-muted: #8E8882;
+  }
+
+  .dark {
+    --color-bg: #141312;
+    --color-card: #1D1B1A;
+    --color-border: #2E2B28;
+    --color-ink: #F5EFEB;
+    --color-ink-muted: #827B73;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9D2C7;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #3A3632;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BFB6A8;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4E4943;
+}
+
+/* Smooth keyframes */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Number display utility */
+.font-number {
+  font-family: 'Fraunces', serif;
+  font-feature-settings: "tnum", "lnum";
+}
+
+/* Ledger paper styling */
+.ledger-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E2D9;
+  border-radius: 12px;
+  transition: all 0.15s ease-in-out;
+}
+
+.dark .ledger-card {
+  background-color: #1D1B1A;
+  border: 1px solid #2E2B28;
+}
+
+.ledger-card-subtle {
+  background-color: #F8F6F2;
+  border: 1px solid #EBE5DC;
+  border-radius: 10px;
+}
+
+.dark .ledger-card-subtle {
+  background-color: #22201E;
+  border: 1px solid #332F2B;
+}
